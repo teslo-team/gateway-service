@@ -1,8 +1,8 @@
 import { Controller, Get } from '@nestjs/common'
 import { ApiOkResponse, ApiOperation } from '@nestjs/swagger'
 
-import { AppService } from './app.service.js'
-import { HealthResponse } from './dto/index.js'
+import { AppService } from './app.service'
+import { HealthResponse } from './dto'
 
 @Controller()
 export class AppController {

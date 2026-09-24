@@ -1,1 +1,1 @@
-export * from './indentifier.validator.js'
+export * from './indentifier.validator'

@@ -1,6 +1,6 @@
 import { IsEnum, IsString, Validate } from 'class-validator'
 
-import { IdentifierValidator } from '../../../../shared/validators/indentifier.validator.js'
+import { IdentifierValidator } from '../../../../shared/validators'
 
 export class SendOtpRequest {
 	@IsString()

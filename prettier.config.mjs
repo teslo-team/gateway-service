@@ -1,3 +1,3 @@
-import config from "@teslo-team/core/prettier";
+import config from '@teslo-team/core/prettier'
 
-export default config;
+export default config

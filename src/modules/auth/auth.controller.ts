@@ -1,6 +1,6 @@
 import { Body, Controller, HttpCode, HttpStatus, Post } from '@nestjs/common'
 
-import { SendOtpRequest } from './dto/index.js'
+import { SendOtpRequest } from './dto'
 
 @Controller('auth')
 export class AuthController {

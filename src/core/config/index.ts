@@ -1,2 +1,2 @@
-export * from './cors.config.js'
-export * from './validation-pipe.config.js'
+export * from './cors.config'
+export * from './validation-pipe.config'

@@ -3,9 +3,8 @@ import { ConfigService } from '@nestjs/config'
 import { NestFactory } from '@nestjs/core'
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger'
 
-import { AppModule } from './core/app.module.js'
-import { getCorseConfig } from './core/config/cors.config.js'
-import { getValidationPipeConfig } from './core/config/validation-pipe.config.js'
+import { AppModule } from './core/app.module'
+import { getCorseConfig, getValidationPipeConfig } from './core/config'
 
 async function bootstrap() {
 	const app = await NestFactory.create(AppModule)
@@ -38,4 +37,4 @@ async function bootstrap() {
 	logger.log(`Gateway started: ${host}`)
 	logger.log(`Swaager: ${host}/docs`)
 }
-await bootstrap()
+bootstrap()

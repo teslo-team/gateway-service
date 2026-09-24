@@ -1,1 +1,1 @@
-export * from './health.response.js'
+export * from './health.response'

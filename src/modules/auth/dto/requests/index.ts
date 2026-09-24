@@ -1,1 +1,1 @@
-export * from './send-otp.request.js'
+export * from './send-otp.request'
