@@ -1,6 +1,7 @@
 import {
 	Body,
 	Controller,
+	Get,
 	HttpCode,
 	HttpStatus,
 	Post,
@@ -8,9 +9,10 @@ import {
 	Res
 } from '@nestjs/common'
 import { ConfigService } from '@nestjs/config'
-import { ApiOperation } from '@nestjs/swagger'
+import { ApiBearerAuth, ApiOperation } from '@nestjs/swagger'
 import type { Request, Response } from 'express'
 import { lastValueFrom } from 'rxjs'
+import { Protected } from 'src/shared/decorators'
 
 import { AuthClientGrpc } from './auth.grpc'
 import { SendOtpRequest, VerifyOtpRequest } from './dto'
@@ -107,5 +109,12 @@ export class AuthController {
 		})
 
 		return { ok: true }
+	}
+
+	@ApiBearerAuth()
+	@Protected()
+	@Get('account')
+	public async getAccount() {
+		return { message: 'OK' }
 	}
 }

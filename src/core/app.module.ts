@@ -1,15 +1,21 @@
 import { Module } from '@nestjs/common'
-import { ConfigModule } from '@nestjs/config'
+import { ConfigModule, ConfigService } from '@nestjs/config'
+import { PassportModule } from '@teslo-team/passport'
 
 import { AuthModule } from '../modules/auth/auth.module'
 
 import { AppController } from './app.controller'
 import { AppService } from './app.service'
+import { getPassportConfig } from './config'
 
 @Module({
 	imports: [
 		ConfigModule.forRoot({
 			isGlobal: true
+		}),
+		PassportModule.registerAsync({
+			useFactory: getPassportConfig,
+			inject: [ConfigService]
 		}),
 		AuthModule
 	],
