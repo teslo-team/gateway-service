@@ -12,7 +12,7 @@ import { ConfigService } from '@nestjs/config'
 import { ApiBearerAuth, ApiOperation } from '@nestjs/swagger'
 import type { Request, Response } from 'express'
 import { lastValueFrom } from 'rxjs'
-import { Protected } from 'src/shared/decorators'
+import { CurrentUser, Protected } from 'src/shared/decorators'
 
 import { AuthClientGrpc } from './auth.grpc'
 import { SendOtpRequest, VerifyOtpRequest } from './dto'
@@ -114,7 +114,7 @@ export class AuthController {
 	@ApiBearerAuth()
 	@Protected()
 	@Get('account')
-	public async getAccount() {
-		return { message: 'OK' }
+	public async getAccount(@CurrentUser() userId: string) {
+		return { id: userId }
 	}
 }
