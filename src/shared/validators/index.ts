@@ -1,1 +1,1 @@
-export * from './indentifier.validator'
+export * from './identifier.validator'
