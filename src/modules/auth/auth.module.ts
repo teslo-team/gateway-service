@@ -3,11 +3,14 @@ import { ConfigService } from '@nestjs/config'
 import { ClientsModule, Transport } from '@nestjs/microservices'
 import { PROTO_PATHS } from '@teslo-team/contracts'
 
+import { AccountModule } from '../account/account.module'
+
 import { AuthController } from './auth.controller'
 import { AuthClientGrpc } from './auth.grpc'
 
 @Module({
 	imports: [
+		AccountModule,
 		ClientsModule.registerAsync([
 			{
 				name: 'AUTH_PACKAGE',
